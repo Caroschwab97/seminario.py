@@ -1,4 +1,5 @@
 
+from functools import reduce
 nombres = ['Agustin', 'Alan', 'Andrés', 'Ariadna', 'Bautista', 'CAROLINA', 'CESAR', 
 'David','Diego', 'Dolores', 'DYLAN', 'ELIANA', 'Emanuel', 'Fabián', 'Facundo', 
 'Francsica', 'FEDERICO', 'Fernanda', 'GONZALO', 'Gregorio', 'Ignacio', 'Jonathan', 
@@ -18,8 +19,7 @@ notas_2 = [30, 95, 28, 84, 84, 43, 66, 51, 4, 11, 58, 10, 13, 34, 96, 71, 86, 37
 def creacion_diccio():
     diccionario={}
 
-    for i in range(len(nombres)):
-        diccionario[nombres[i]]=notas_1[i],notas_2[i]
+    diccionario = {nombre: (nota1, nota2) for nombre, nota1, nota2 in zip(nombres, notas_1, notas_2)}
 
     return(diccionario)
 
@@ -36,8 +36,8 @@ def promedio_individual(diccionario):
 
 def promedio_general(promedios):
     total=0
-    for promedio in promedios:
-        total+=promedios[promedio]
+
+    total = reduce(lambda acumula, x: acumula + promedios[x], promedios,0)
     prom=total/len(promedios)
     print(f'el promedio total es: {prom}')
     return (prom)
