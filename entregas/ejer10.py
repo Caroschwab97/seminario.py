@@ -21,6 +21,7 @@ def creacion_diccio():
 
     diccionario = {nombre: (nota1, nota2) for nombre, nota1, nota2 in zip(nombres, notas_1, notas_2)}
 
+
     return(diccionario)
 
 def promedio_individual(diccionario): 
@@ -51,8 +52,8 @@ def promedio_mas_bajo(promedios):
     print(f'el estudiante con el promedio mas bajo es: {clave} con un promedio de: {promedios[clave]}')
 
 d=creacion_diccio()
-p=promedio_individual(d)
-promedio_general(p)
-promedio_mas_alto(p)
-promedio_mas_bajo(p)
+prom=promedio_individual(d)
+promedio_general(prom)
+promedio_mas_alto(prom)
+promedio_mas_bajo(prom)
 
